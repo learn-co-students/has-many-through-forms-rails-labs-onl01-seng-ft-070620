@@ -7,7 +7,9 @@ class Post < ActiveRecord::Base
   def categories_attributes=(categories_attributes)
     categories_attributes.values.each do |category_attributes|
       if category_attributes[:name] != ""
-        self.categories.build(category_attributes)
+        # self.categories.build(category_attributes) #doesn't check if inputted category already exists
+        category = Category.find_or_create_by(category_attributes)
+        self.categories << category
       end
     end
   end
