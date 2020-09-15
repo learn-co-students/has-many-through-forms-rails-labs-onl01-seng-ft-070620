@@ -6,8 +6,8 @@ New Comment
     <%= f.fields_for :user_attributes do |u| %>
         <%= u.label :username %>
         <%= u.text_field :username, placeholder: 'New User username' %> <br>
-        User: <%= f.select :user_id, @users.collect {|u| [u.username, u.id]}, include_blank: true%> <br>
     <% end %>
+    User: <%= f.select :user_id, @users.collect {|u| [u.username, u.id]}, include_blank: true%> <br>
     <%= f.label :content %> <br>
     <%= f.text_area :content %> <br>
     <%= f.submit %>
