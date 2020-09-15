@@ -1,1 +1,14 @@
-
+<h1>Post Page</h1>
+<%= render 'post'%>
+New Comment
+<%= form_for @post.comments.build do |f| %>
+    <%= f.hidden_field :post_id, value: @post.id %>
+    <%= f.fields_for :user_attributes do |u| %>
+        <%= u.label :username %>
+        <%= u.text_field :username, placeholder: 'New User username' %> <br>
+    <% end %>
+    User: <%= f.select :user_id, @users.collect {|u| [u.username, u.id]}, include_blank: true%> <br>
+    <%= f.label :content %> <br>
+    <%= f.text_area :content %> <br>
+    <%= f.submit %>
+<% end %>
