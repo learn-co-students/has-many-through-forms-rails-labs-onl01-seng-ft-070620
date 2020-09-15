@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
   def show
-    # binding.pry
     @post = Post.find(params[:id])
-    # @comment = @post.comments.build
     @users = User.all
   end
 
@@ -17,7 +15,6 @@ class PostsController < ApplicationController
   end
 
   def create
-    # binding.pry
     post = Post.new(post_params)
     if post.save
       redirect_to post

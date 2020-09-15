@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
-  accepts_nested_attributes_for :user, reject_if: proc {|attributes| attributes['user_id'].blank?}
+  accepts_nested_attributes_for :user
 
   # def user_attributes=(attr)
   #   # binding.pry
