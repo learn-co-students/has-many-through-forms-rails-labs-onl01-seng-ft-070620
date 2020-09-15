@@ -5,8 +5,8 @@ New Comment
     <%= f.hidden_field :post_id, value: @post.id %>
     <%= f.fields_for :user_attributes do |u| %>
         <%= u.label :username %>
-        <%= u.text_field :username %> <br>
-        User: <%= u.select :user_id, @users.collect {|u| [u.username, u.id]}, include_blank: true%> <br>
+        <%= u.text_field :username, placeholder: 'New User username' %> <br>
+        User: <%= f.select :user_id, @users.collect {|u| [u.username, u.id]}, include_blank: true%> <br>
     <% end %>
     <%= f.label :content %> <br>
     <%= f.text_area :content %> <br>
