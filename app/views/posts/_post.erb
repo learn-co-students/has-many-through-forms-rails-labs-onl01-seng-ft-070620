@@ -1,0 +1,15 @@
+<div class=post-content>
+  Title: <%= @post.title %> <br>
+  Content: <%= @post.content %> <br>
+  Category: <% @post.categories.each do |category| %>
+    <%= category.name %> <br>
+  <% end %>
+  Comments: <br>
+  <% @post.comments.each do |c| %>
+    <li><%= c.user.username %> says: <%= c.content %></li>
+  <% end %>
+  Comment Users: <br>
+  <% @post.users.uniq.each do |u| %>
+    <li><%= link_to u.username, user_path(u) %></li>
+  <% end %>
+</div>

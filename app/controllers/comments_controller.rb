@@ -1,9 +1,12 @@
 class CommentsController < ApplicationController
 
   def create
+    binding.pry
     comment = Comment.create(comment_params)
+    puts 'created comment!'
     redirect_to comment.post
   end
+
 
   private
 
