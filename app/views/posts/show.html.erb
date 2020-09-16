@@ -20,7 +20,7 @@
 <p>Commentors: </p>
   <ul>
     <%= @post.users.distinct.each do |user| %>
-      <li>user.username</li>
+      <li><%= link_to user.username, user_path(user) %></li>
     <% end %>
   </ul>
 
