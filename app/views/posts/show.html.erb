@@ -12,7 +12,7 @@
     <%=f.collection_select :user_id, User.all, :id, :username%>
     <%=f.text_field :content%>
     
-    <%=f.fields_for :user do |u|%>
+    <%=f.fields_for :user User.new do |u|%>
       <%=u.text_field :username%>
     <%end%>
     <%=f.submit "Create Comment"%>
