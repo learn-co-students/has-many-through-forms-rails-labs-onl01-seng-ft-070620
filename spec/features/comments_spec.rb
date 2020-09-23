@@ -1,10 +1,11 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'comments', type: 'feature' do
-
   before do
-    @category = Category.create(name: "Cool")
-    @post = Post.create(title: "So Awesome", content: "Man am I a great blogger OR WHAT!")
+    @category = Category.create(name: 'Cool')
+    @post = Post.create(title: 'So Awesome', content: 'Man am I a great blogger OR WHAT!')
     @user = User.create(username: 'RealBigFish')
     visit post_path(@post)
   end
@@ -20,7 +21,6 @@ describe 'comments', type: 'feature' do
     fill_in('comment_content', with: 'i agree')
     fill_in('comment_user_attributes_username', with: 'CoolPerson25')
     click_button('Create Comment')
-    expect(page).to have_content("CoolPerson25 says: i agree")
+    expect(page).to have_content('CoolPerson25 says: i agree')
   end
-
 end
